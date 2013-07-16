@@ -43,6 +43,8 @@ field, not the original source field.
 
 You can try out this demo on your machine by opening demo/index.html
 
+You can also lock an input when the page is loaded by adding
+`data-slug-locked='true'` to the element.
 
 Options
 -------

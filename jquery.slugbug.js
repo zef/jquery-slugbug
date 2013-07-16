@@ -4,9 +4,8 @@
     return $.fn.slugbug = function(options) {
       var settings;
       settings = $.extend({
-        dataAttribute: 'slug-to',
+        dataAttribute: 'slugbug-target',
         events: 'keyup change',
-        lockSlugOnEdit: true,
         lockSlugAttribute: 'slug-locked',
         parameterize: function(string, strip_trailing_slug_chars) {
           if (strip_trailing_slug_chars == null) {
@@ -28,14 +27,17 @@
         }
       });
       $(document).on(settings.events, "[data-" + settings.dataAttribute + "]", function(event) {
-        var source, target, value;
+        var source, targets, value;
         source = $(event.target);
-        target = $(source.data(settings.dataAttribute));
+        targets = $(source.data(settings.dataAttribute));
         value = $.slugbug.parameterize(source.val());
-        target.text(value);
-        if (!target.data(settings.lockSlugAttribute)) {
-          return target.val(value).change();
-        }
+        targets.text(value);
+        return targets.each(function(index, target) {
+          target = $(target);
+          if (!target.data(settings.lockSlugAttribute)) {
+            return target.val(value).change();
+          }
+        });
       });
       return $("[data-" + settings.dataAttribute + "]").each(function(index, input) {
         var targets;

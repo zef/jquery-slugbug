@@ -21,6 +21,7 @@ jQuery ($) ->
 
     source = $('[name="title"]')
     target_input = $('[name="slug"]')
+    locked_input = $('[name="locked_slug"]')
     target_element = $('.url-slug')
 
     afterEach ->
@@ -75,5 +76,11 @@ jQuery ($) ->
         source.val('Something Else').keyup()
         expect(target_input.val()).toBe 'something_else'
 
-    describe 'Turning off', ->
+    describe 'Pre-locking a target', ->
+      it 'is not changed by an input targeting it', ->
+        original_value = locked_input.val()
+
+        source.val(title).keyup()
+        expect(locked_input.val()).toBe original_value
+
 

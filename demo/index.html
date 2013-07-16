@@ -57,12 +57,17 @@
 
       <label>
         Title
-        <input type="text" name="title" value="" data-slugbug-target='[name="slug"]' />
+        <input type="text" name="title" value="" data-slugbug-target='[name="slug"],[name="locked_slug"]' />
       </label>
 
       <label>
         Slug
         <input type="text" name="slug" value="" data-slugbug-target='.url-slug' />
+      </label>
+
+      <label>
+        Locked Slug
+        <input type="text" name="locked_slug" value="already_locked" data-slug-locked='true' />
       </label>
 
       <div>

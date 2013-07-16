@@ -4,10 +4,8 @@ jQuery ($) ->
       dataAttribute: 'slugbug-target'
       events: 'keyup change'
       lockSlugAttribute: 'slug-locked'
-
       # TODO: implement this option
       # lockSlugOnEdit: true
-
       parameterize: (string, strip_trailing_slug_chars = true) ->
         string = string.toLowerCase()
         # remove apostrophes, so we get 'dont' instead of 'don_t'
@@ -28,13 +26,15 @@ jQuery ($) ->
 
     $(document).on settings.events, "[data-#{settings.dataAttribute}]", (event) ->
       source = $(event.target)
-      target = $(source.data(settings.dataAttribute))
+      targets = $(source.data(settings.dataAttribute))
       value = $.slugbug.parameterize(source.val())
 
-      target.text(value)
+      targets.text(value)
 
-      unless target.data(settings.lockSlugAttribute)
-        target.val(value).change()
+      targets.each (index, target)->
+        target = $(target)
+        unless target.data(settings.lockSlugAttribute)
+          target.val(value).change()
 
     $("[data-#{settings.dataAttribute}]").each (index, input) ->
       targets = $($(input).data(settings.dataAttribute))

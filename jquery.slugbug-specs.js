@@ -21,11 +21,12 @@
       });
     });
     return describe('$(document).slugbug()', function() {
-      var slug, source, target_element, target_input, title;
+      var locked_input, slug, source, target_element, target_input, title;
       title = 'Hello There!';
       slug = 'hello_there';
       source = $('[name="title"]');
       target_input = $('[name="slug"]');
+      locked_input = $('[name="locked_slug"]');
       target_element = $('.url-slug');
       afterEach(function() {
         source.val('');
@@ -46,7 +47,7 @@
         source.val(title).keyup();
         return expect(target_element.text()).toBe(slug);
       });
-      return describe('Typing in a slug target', function() {
+      describe('Typing in a slug target', function() {
         it('creates a slug', function() {
           target_input.focus().val('Hello There').keyup();
           return expect(target_input.val()).toBe('hello_there');
@@ -76,6 +77,14 @@
           source.val('First Change').keyup();
           source.val('Something Else').keyup();
           return expect(target_input.val()).toBe('something_else');
+        });
+      });
+      return describe('Pre-locking a target', function() {
+        return it('is not changed by an input targeting it', function() {
+          var original_value;
+          original_value = locked_input.val();
+          source.val(title).keyup();
+          return expect(locked_input.val()).toBe(original_value);
         });
       });
     });
