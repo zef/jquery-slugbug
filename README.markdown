@@ -3,6 +3,19 @@ jQuery SlugBug
 
 A jQuery plugin that makes it easy to create a URL friendly slug based on an input field.
 
+```
+     _..-----.._
+    /.--'''''--.\
+   ||           ||
+  _||___________||_
+ / _\     |     /_ \
+ |(_)\    |    /(_)|
+ |____'.__!__.'____|
+ (____|BSP-MJ1|____)
+  |||           |||
+  `-'           `-'
+```
+
 Basic usage
 -----------
 
