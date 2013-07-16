@@ -3,19 +3,6 @@ jQuery SlugBug
 
 A jQuery plugin that makes it easy to create a URL friendly slug based on an input field.
 
-```
-     _..-----.._
-    /_.-¯¯˘¯¯-._\
-   ||           ||
-   ||___________||
-  _|\     |     /|_
- / _ \    |    / _ \
- |(_) '.__!__.' (_)|
- '----|SLUGBUG|----'
-  !_!           !_!
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-```
-
 Basic usage
 -----------
 
@@ -72,4 +59,18 @@ To Do
 
 * Implement option to turn off locking slug field after editing it
 * Document (and test) option to provide your own parameterize function
+
+
+```
+     _..-----.._
+    /_.-¯¯˘¯¯-._\
+   ||           ||
+   ||___________||
+  _|\     |     /|_
+ / _ \    |    / _ \
+ |(_) '.__!__.' (_)|
+ '----|SLUGBUG|----'
+  !_!           !_!
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+```
 
