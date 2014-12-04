@@ -61,7 +61,8 @@ To Do
 
 * Implement option to turn off locking slug field after editing it
 * Document (and test) option to provide your own parameterize function
-
+* Possibly maintain cursor position when making changes in the interior
+  of a string in the slug field.
 
 ```
      _..-----.._
