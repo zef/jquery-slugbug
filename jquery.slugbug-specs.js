@@ -65,7 +65,7 @@
           source.val(title).keyup();
           return expect(target_input.val()).toBe('hello');
         });
-        it('locks changes even when parameterize is needed', function() {
+        it('locks changes even when parameterize is not needed', function() {
           target_input.focus().val('hello').blur();
           source.val(title).keyup();
           return expect(target_input.val()).toBe('hello');

@@ -62,7 +62,7 @@ jQuery ($) ->
         source.val(title).keyup()
         expect(target_input.val()).toBe 'hello'
 
-      it 'locks changes even when parameterize is needed', ->
+      it 'locks changes even when parameterize is not needed', ->
         target_input.focus().val('hello').blur()
         source.val(title).keyup()
         expect(target_input.val()).toBe 'hello'
