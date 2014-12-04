@@ -20,6 +20,8 @@ jQuery ($) ->
 
     , options
 
+    valueOnFocusAttribute = 'value-on-focus'
+
     $.extend
       slugbug:
         parameterize: settings.parameterize
@@ -41,12 +43,12 @@ jQuery ($) ->
 
       targets.bind 'focus', (event) ->
         target = $(event.target)
-        target.data('value-on-focus', target.val())
+        target.data(valueOnFocusAttribute, target.val())
 
       targets.bind 'blur', (event) ->
         target = $(event.target)
-        if target.val() == target.data('value-on-focus')
-          target.removeData('value-on-focus')
+        if target.val() == target.data(valueOnFocusAttribute)
+          target.removeData(valueOnFocusAttribute)
 
       targets.bind "#{settings.events} blur", (event) ->
         target = $(event.target)
@@ -59,7 +61,7 @@ jQuery ($) ->
           target.text(value)
           target.val(value)
 
-        focus_value = target.data('value-on-focus')
+        focus_value = target.data(valueOnFocusAttribute)
         if focus_value? && target.val() != focus_value
           target.data(settings.lockSlugAttribute, 'true')
 

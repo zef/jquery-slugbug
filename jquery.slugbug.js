@@ -2,7 +2,7 @@
 
   jQuery(function($) {
     return $.fn.slugbug = function(options) {
-      var settings;
+      var settings, valueOnFocusAttribute;
       settings = $.extend({
         dataAttribute: 'slugbug-target',
         events: 'keyup change',
@@ -21,6 +21,7 @@
           return string;
         }
       }, options);
+      valueOnFocusAttribute = 'value-on-focus';
       $.extend({
         slugbug: {
           parameterize: settings.parameterize
@@ -45,13 +46,13 @@
         targets.bind('focus', function(event) {
           var target;
           target = $(event.target);
-          return target.data('value-on-focus', target.val());
+          return target.data(valueOnFocusAttribute, target.val());
         });
         targets.bind('blur', function(event) {
           var target;
           target = $(event.target);
-          if (target.val() === target.data('value-on-focus')) {
-            return target.removeData('value-on-focus');
+          if (target.val() === target.data(valueOnFocusAttribute)) {
+            return target.removeData(valueOnFocusAttribute);
           }
         });
         return targets.bind("" + settings.events + " blur", function(event) {
@@ -63,7 +64,7 @@
             target.text(value);
             target.val(value);
           }
-          focus_value = target.data('value-on-focus');
+          focus_value = target.data(valueOnFocusAttribute);
           if ((focus_value != null) && target.val() !== focus_value) {
             return target.data(settings.lockSlugAttribute, 'true');
           }
